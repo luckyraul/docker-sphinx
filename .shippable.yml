@@ -5,6 +5,7 @@ build:
     image_name: mygento/sphinx
     image_tag: latest
     pull: false
+  ci: true
   push:
     - docker push mygento/sphinx:latest
 
