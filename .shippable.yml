@@ -1,0 +1,17 @@
+build:
+  pre_ci:
+    - docker build --rm=true --pull=true --force-rm=true --no-cache=true --tag=mygento/sphinx:latest .
+  pre_ci_boot:
+    image_name: mygento/sphinx
+    image_tag: latest
+    pull: false
+  ci:
+    indexer -v
+  push:
+    - docker push mygento/sphinx:latest
+
+integrations:
+    hub:
+      - integrationName: Docker
+        type: docker
+        agent_only: true

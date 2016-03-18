@@ -1,0 +1,12 @@
+---
+classes:
+    - sphinx
+    - sphinx::crons
+    
+sphinx::service_ensure: false
+sphinx::service_status: false
+sphinx::crons::crons:
+    indexer:
+        command: 'indexer --rotate --all'
+        user: root
+        minute: 30
